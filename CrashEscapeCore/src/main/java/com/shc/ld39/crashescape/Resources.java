@@ -10,6 +10,8 @@ public class Resources
         public static Texture BACKGROUND;
         public static Texture COPTER;
         public static Texture SMOKE_SHEET;
+        
+        public static Texture[] BUILDING = new Texture[3];
     }
     
     public static final class Animations

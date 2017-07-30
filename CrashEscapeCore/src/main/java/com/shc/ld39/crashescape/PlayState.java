@@ -1,16 +1,18 @@
 package com.shc.ld39.crashescape;
 
 import com.shc.ld39.crashescape.entities.Background;
+import com.shc.ld39.crashescape.entities.Building;
 import com.shc.ld39.crashescape.entities.Copter;
 import com.shc.silenceengine.core.GameState;
 import com.shc.silenceengine.core.SilenceEngine;
 import com.shc.silenceengine.graphics.SceneRenderSystem;
-import com.shc.silenceengine.graphics.Sprite;
 import com.shc.silenceengine.graphics.cameras.OrthoCam;
 import com.shc.silenceengine.graphics.opengl.GLContext;
-import com.shc.silenceengine.scene.Entity;
 import com.shc.silenceengine.scene.Scene;
-import com.shc.silenceengine.scene.components.SpriteComponent;
+import com.shc.silenceengine.utils.GameTimer;
+import com.shc.silenceengine.utils.MathUtils;
+import com.shc.silenceengine.utils.TaskManager;
+import com.shc.silenceengine.utils.TimeUtils.Unit;
 
 public class PlayState extends GameState
 {
@@ -29,6 +31,19 @@ public class PlayState extends GameState
 		resized();
 
 		scene.registerRenderSystem(new SceneRenderSystem());
+		
+		GameTimer timer = new GameTimer(2, Unit.SECONDS);
+		timer.setCallback(() ->
+		{
+			if (CrashEscape.INSTANCE.getGameState() != this)
+				return;
+			
+			TaskManager.runOnRender(() ->
+				scene.addEntity(new Building(MathUtils.randomRange(0, 3), 1400)));
+			
+			timer.start();
+		});
+		timer.start();
 	}
 
 	@Override

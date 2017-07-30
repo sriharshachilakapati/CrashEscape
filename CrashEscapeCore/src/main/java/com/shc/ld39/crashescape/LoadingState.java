@@ -25,12 +25,20 @@ public class LoadingState extends ResourceLoadingState
         long backgroundTexID = loader.define(Texture.class, FilePath.getResourceFile("background.png"));
         long smokeTexID = loader.define(Texture.class, FilePath.getResourceFile("smoke.png"));
         long copterTexID = loader.define(Texture.class, FilePath.getResourceFile("copter.png"));
+        
+        long building1TexID = loader.define(Texture.class, FilePath.getResourceFile("building1.png"));
+        long building2TexID = loader.define(Texture.class, FilePath.getResourceFile("building2.png"));
+        long building3TexID = loader.define(Texture.class, FilePath.getResourceFile("building3.png"));
 
         return new LoadingState(loader, () ->
         {
             Resources.Textures.BACKGROUND = loader.get(backgroundTexID);
             Resources.Textures.SMOKE_SHEET = loader.get(smokeTexID);
             Resources.Textures.COPTER = loader.get(copterTexID);
+            
+            Resources.Textures.BUILDING[0] = loader.get(building1TexID);
+            Resources.Textures.BUILDING[1] = loader.get(building2TexID);
+            Resources.Textures.BUILDING[2] = loader.get(building3TexID);
             
             Animation smokeAnim = Animations.SMOKE = new Animation();
             SpriteSheet smokeSheet = new SpriteSheet(Textures.SMOKE_SHEET, 41, 41);
