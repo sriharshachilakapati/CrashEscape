@@ -6,12 +6,20 @@ import com.shc.silenceengine.input.Keyboard;
 
 public class CrashEscape extends Game
 {
+    public static Game INSTANCE;
+
     @Override
     public void init()
     {
+        INSTANCE = this;
+
         SilenceEngine.display.setTitle("CrashEscape: SilenceEngine " + SilenceEngine.getVersionString());
         SilenceEngine.display.setSize(1280, 720);
         SilenceEngine.display.centerOnScreen();
+        
+        SilenceEngine.input.setSimulateTouch(true);
+
+        setGameState(LoadingState.create());
     }
 
     @Override

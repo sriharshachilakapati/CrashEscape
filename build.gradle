@@ -11,12 +11,12 @@ allprojects {
         webgl4jVersion      = "0.2.9-SNAPSHOT"
         gwtAlVersion        = "0.2-SNAPSHOT"
         gwtOpentypeVersion  = "0.1-SNAPSHOT"
-        
+
                 openAlAndroidVersion = "0.3-SNAPSHOT"
         retrolambdaVersion   = "2.5.1"
-        
+
                 lwjglVersion = "3.1.3-SNAPSHOT"
-        
+
         streamsVersion  = "1.0.3"
         easyXmlVersion  = "0.1"
         easyJsonVersion = "0.3"
@@ -31,7 +31,7 @@ buildscript {
 
     dependencies {
                 classpath "org.wisepersist:gwt-gradle-plugin:1.0.0"
-        
+
                 classpath "com.android.tools.build:gradle:2.3.0"
         classpath "me.tatarka:gradle-retrolambda:3.2.5"
         classpath "me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2"
